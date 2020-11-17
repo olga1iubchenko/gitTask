@@ -1,0 +1,121 @@
+GIT FLOW:
+
+Precondition: for this task I used repository from my Effective Java Task - https://github.com/olga1iubchenko/3.EffectiveJava
+
+git checkout -b task6-git-feature
+
+/* add changes */
+
+git status
+
+git add . /* to add untracked files */
+
+git status  /* checking no untracted fies */
+
+git commit -m "changes to cherry-pick added"
+
+git push origin task6-git-feature
+
+/* add changes */
+
+git status
+
+git add . /* to add untracked files */
+
+git commit -m "first change to rebase added"
+
+git push origin task6-git-feature
+
+* add changes */
+
+git status
+
+git add . /* to add untracked files */
+
+git commit -m "second change to rebase added"
+
+git push origin task6-git-feature
+
+* add changes */
+
+git status
+
+git add . /* to add untracked files */
+
+git commit -m "third change to rebase added"
+
+git push origin task6-git-feature
+
+---------
+
+Cherry-pick specified commit:
+
+git checkout main
+
+git cherry-pick 335bee91ebad627d3c2bce0c00d417164ac45fb4
+
+------
+Rebase:
+
+git checkout task6-git-feature
+
+git rebase - main /*please find details of interactive rebase via pic*/
+
+[detached HEAD 6c2076d] first change to rebase added
+ 2 files changed, 4 insertions(+), 2 deletions(-)
+Successfully rebased and updated refs/heads/task6-git-feature.
+
+As far as 
+
+------
+
+git checkout main
+
+git blame src/main/java/gittask/GitTask.java
+
+Result:
+
+5a1bb526 (Olga_Liubchenko 2020-11-17 13:22:11 +0200 1) package gittask;
+5a1bb526 (Olga_Liubchenko 2020-11-17 13:22:11 +0200 2)
+5a1bb526 (Olga_Liubchenko 2020-11-17 13:22:11 +0200 3) public class GitTask {
+5a1bb526 (Olga_Liubchenko 2020-11-17 13:22:11 +0200 4)
+5a1bb526 (Olga_Liubchenko 2020-11-17 13:22:11 +0200 5)     public String pullWithCherryPick() { return null; }
+5a1bb526 (Olga_Liubchenko 2020-11-17 13:22:11 +0200 6) }
+
+As far as we following the Golden Rule of Rebasing we've rebased the changes to local branch and that's why they are not retreived when we run git blame.
+So folloging git best practicies we need to use merge to pull changes from local branch.
+
+So I created pull request. Review it and merge.
+
+Run 
+
+git pull origin main
+
+git blame src/main/java/gittask/GitTask.java
+
+Result:
+335bee91 (Olga_Liubchenko 2020-11-17 13:22:11 +0200  1) package gittask;
+335bee91 (Olga_Liubchenko 2020-11-17 13:22:11 +0200  2)
+335bee91 (Olga_Liubchenko 2020-11-17 13:22:11 +0200  3) public class GitTask {
+335bee91 (Olga_Liubchenko 2020-11-17 13:22:11 +0200  4)
+335bee91 (Olga_Liubchenko 2020-11-17 13:22:11 +0200  5)     public String pullWithCherryPick() { return null; }
+478cd036 (Olga_Liubchenko 2020-11-17 13:30:31 +0200  6)
+478cd036 (Olga_Liubchenko 2020-11-17 13:30:31 +0200  7)     public String pullWithRebaseOne () { return null; }
+f322a99c (Olga_Liubchenko 2020-11-17 13:37:38 +0200  8)
+f322a99c (Olga_Liubchenko 2020-11-17 13:37:38 +0200  9)     public String pullWithRebaseTwo () { return null; }
+f322a99c (Olga_Liubchenko 2020-11-17 13:37:38 +0200 10)
+2501acf4 (Olga_Liubchenko 2020-11-17 13:45:05 +0200 11)     public String pullWithRebaseThree () { return null; }
+25640e99 (olga1iubchenko  2020-11-17 15:31:48 +0200 12)
+335bee91 (Olga_Liubchenko 2020-11-17 13:22:11 +0200 13) }
+
+
+So now we can see list of all changes with such attributes as athor, date, time, timezone, and rownumber.
+
+
+
+
+
+
+
+
+
