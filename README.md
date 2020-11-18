@@ -1,3 +1,7 @@
+# Main Task 
+
+Please find flow of main task execution and analysis in [mainTask](https://github.com/olga1iubchenko/gitTask/tree/main/mainTask) folder
+
 # Extra Mile 1
 ## Commit Message
 **Commit Message Convention**
@@ -62,3 +66,7 @@ Please find hook content in [pre-push-example](https://github.com/olga1iubchenko
 *Tip:* please follow the steps described above to setup pre-push hook.
 
 Please find hook content in [clone-repository-example](https://github.com/olga1iubchenko/gitTask/blob/main/extraTask/hooks/clone-repository-example)
+
+# ExtraMile 2
+
+Please find configuration for second additional task in [jenkinsConfig](https://github.com/olga1iubchenko/gitTask/tree/main/extraTask/jenkinsConfig)
