@@ -1,24 +1,44 @@
+# Extra Mile 1
+## Commit Message
 **Commit Message Convention**
 
-There are many ideologies on what a good commit message should look like. Based on my own experience and some advice found here and here, this is what I believe a good commit message should include:
-Subject line should be a summary of changes in 50 characters or less
-The body of the commit message should focus on why the changes are being made as well as how the changes address the issue and any implications or side effects caused by the change
-If a lot of explanation is necessary format the message so that its clear and easy to read (i.e. bullet points, new line separation between paragraphs, etc.)
+A good practice when working with agile and feature branches is to include the ticket number in the feature branch name as it’s good for traceability. If you’re using Jira to create your feature branches, you can create branches from the UI of the ticket and it will automatically have the ticket number prepended to the branch name. For this tutorial, we’ll assume this best practice is being followed. Therefore, if our branch was named “ABC-123-some-nice-feature”, we want to extract the ABC-123 segment and either prepend or append it to our commit message. This is where Git Hooks come in. Git Hooks are simply a way to trigger custom scripts when certain Version Control System (VCS) events occur and they can be found in the .git/hooks directory of your git based project.
 
-**Create a Template**
+**Step 1: Create the hook file**
 
-This step is not necessary but, it allows you to replace the default commit message prompt with something more useful to your team. Like…some guidelines for a good commit message.
-1.Create a template file (e.g. /.git/.prepare-commit-msg)
-2. Set the commit template in the .gitconfig file: git config --global commit.template /.git/.prepare-commit-msg. This will insert the following configuration in your .gitconfig file:
-[commit]
-        template =  /.git/.prepare-commit-msg
- 
+Open up the .git/hooks directory of your project and you’ll see a handful of sample hook files for various VCS events. For our goal, we want to change the prepare-commit-msg.sample script which as the name suggests, is triggered when you make a git commit and prepare the commit message. Open this file with your favourite command-line text editor and delete all the commented out boilerplate code in there.
+
 **Create a hook** 
 
-1. Create a directory to store your hooks: mkdir ~/hooks
-2. Create file titled prepare-commit-msgin the hooks directory.
-3. Make the file executable: chmod 755 prepare-commit-msg
-4. Add script into prepare-commit-msg
+Use following script from []  and copy its content to file to prepare-commit-msg (i.e. remove the .sample).
+Now simply run git init to pick up the changes and try making a commit! You should see the ticket ID from your branch automatically prepended to your commit message.
+
+**Going Global**
+Firstly, set up a git template directory using the git config command. In this example we’re using the .git-templates folder we’ve created in our home directory:
+```
+git config --global init.templatedir '~/.git-templates'
+```
+Then create the hooks directory for global hooks in your template folder:
+```
+mkdir -p ~/.git-templates/hooks
+```
+Afterwards, copy your hooks into this newly created directory and ensure permissions are correctly set on the file
+```
+chmod a+x ~/.git-templates/hooks/prepare-commit-msg
+```
+Set the commit template in the .gitconfig file: 
+```
+git config --global commit.template  ~/.git-templates/hooks/prepare-commit-msg
+```
+This will insert the following configuration in your .gitconfig file:
+```
+[commit]
+        ~/.git-templates/hooks/prepare-commit-msg
+ ```
+ Done! Now whenever you run git commit, it will prepend the first segments of the branch to the commit message! For existing projects, you just need to reinit the git directory (don’t worry, it won’t break anything!) by running the following in the project root directory:
+ ```
+ git init
+ ```
 
 **Test**
 
