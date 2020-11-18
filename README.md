@@ -10,7 +10,7 @@ Open up the .git/hooks directory of your project and you’ll see a handful of s
 
 **Create a hook** 
 
-Use following script from []  and copy its content to file to prepare-commit-msg (i.e. remove the .sample).
+Use following script from [hook](https://github.com/olga1iubchenko/gitTask/blob/main/extraTask/hooks/prepare-commit-msg-example)  and copy its content to file to prepare-commit-msg (i.e. remove the .sample).
 Now simply run git init to pick up the changes and try making a commit! You should see the ticket ID from your branch automatically prepended to your commit message.
 
 **Going Global**
