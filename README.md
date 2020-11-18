@@ -58,3 +58,7 @@ Please find hook content in [pre-push-example](https://github.com/olga1iubchenko
 
 *Note:* as far as pre-push is a local hook maybe additional restriction in pre-receive hook would be the good idea. But task states only this requirenment so implemented only for local.
 
+# Copy repository to new repository
+*Tip:* please follow the steps described above to setup pre-push hook.
+
+Please find hook content in [clone-repository-example](https://github.com/olga1iubchenko/gitTask/blob/main/extraTask/hooks/clone-repository-example)
