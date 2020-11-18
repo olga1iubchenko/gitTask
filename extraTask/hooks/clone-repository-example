@@ -1,0 +1,14 @@
+git clone https://github.com/olga1iubchenko/gitTask # clone source repository, e.g. A 
+cd /d/WORK/Epam/ELearn/JavaMentoringProgram/6.Git/gitTask # <git repository A directory>
+git remote rm origin # to make sure it doesn't affect the original repository
+git filter-branch --subdirectory-filter <directory 1> -- --all # remove all files other than the ones needed
+mkdir <directory 1> # move them into another directory where they will be stored in the destination repository (if needed)
+mv * <directory 1>
+git add .
+git commit
+
+git clone https://github.com/olga1iubchenko/gitTaskClone # clone destination repository <git repository B url>
+cd /d/WORK/Epam/ELearn/JavaMentoringProgram/6.Git/gitTask # <git repository B directory>
+git remote add repo-gitTask-branch https://github.com/olga1iubchenko/gitTask # add source as a remote <git repository A directory> 
+git pull repo-gitTask-branch master # pull
+git remote rm repo-gitTask-branch  #remove source repository if needed
