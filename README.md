@@ -23,3 +23,5 @@ This step is not necessary but, it allows you to replace the default commit mess
 **Test**
 
 After you’ve saved the prepare-commit-msg file you can then cd into your Git repo and test out your new customization. Create or change a file in your repo and run git commit and you should see your new template (if you created one) and the addition of the branch name at the beginning of the commit message.
+
+test
