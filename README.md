@@ -47,6 +47,14 @@ After you’ve saved the prepare-commit-msg file you can then cd into your Git r
 ## Verifiaction on build status before commit
 
 **Create hook**
-*Note:* please follow the steps described above to setup pre-commit hook.
+*Tip:* please follow the steps described above to setup pre-commit hook.
 
 Please find hook content in [pre-commit-example](https://github.com/olga1iubchenko/gitTask/blob/main/extraTask/hooks/pre-commit-example)
+
+## Verifiaction of uncommited changes before push
+*Tip:* please follow the steps described above to setup pre-push hook.
+
+Please find hook content in [pre-push-example](https://github.com/olga1iubchenko/gitTask/blob/main/extraTask/hooks/pre-push-example)
+
+*Note:* as far as pre-push is a local hook maybe additional restriction in pre-receive hook would be the good idea. But task states only this requirenment so implemented only for local.
+
