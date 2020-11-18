@@ -44,4 +44,9 @@ This will insert the following configuration in your .gitconfig file:
 
 After you’ve saved the prepare-commit-msg file you can then cd into your Git repo and test out your new customization. Create or change a file in your repo and run git commit and you should see your new template (if you created one) and the addition of the branch name at the beginning of the commit message.
 
-test
+## Verifiaction on build status before commit
+
+**Create hook**
+*Note:* please follow the steps described above to setup pre-commit hook.
+
+Please find hook content in [pre-commit-example](https://github.com/olga1iubchenko/gitTask/blob/main/extraTask/hooks/pre-commit-example)
