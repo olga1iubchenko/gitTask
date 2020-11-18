@@ -33,7 +33,7 @@ git config --global commit.template  ~/.git-templates/hooks/prepare-commit-msg
 This will insert the following configuration in your .gitconfig file:
 ```
 [commit]
-        ~/.git-templates/hooks/prepare-commit-msg
+       template = ~/.git-templates/hooks/prepare-commit-msg ~/.git-templates/hooks/prepare-commit-msg
  ```
  Done! Now whenever you run git commit, it will prepend the first segments of the branch to the commit message! For existing projects, you just need to reinit the git directory (don’t worry, it won’t break anything!) by running the following in the project root directory:
  ```
